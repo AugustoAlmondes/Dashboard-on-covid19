@@ -1,0 +1,109 @@
+.container_datafont {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image:
+        radial-gradient(circle at left, rgba(124, 24, 24, 0.397)0%, rgba(0, 0, 0, 0) 40%),
+        radial-gradient(circle at bottom right, rgba(124, 24, 24, 0.397)0%, rgba(0, 0, 0, 0) 40%);
+    background-size: 50% 100%;
+    background-position: left, right;
+    background-repeat: no-repeat;
+
+    /* background: radial-gradient(circle at left, rgba(124, 24, 24, 0.397)0%, rgb(0, 0, 0) 20%); */
+}
+
+.flex_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: clamp(300px, 100%, 900px);
+}
+
+.flex_container h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.flex_container h1 span {
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.flex_container h1 span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 13px;
+    width: 100%;
+    height: 70%;
+    background-color: #BD133B;
+    z-index: -1;
+    transform: rotate(2deg);
+    border-radius: 3px;
+}
+
+.flex_container p {
+    text-align: justify;
+    font-size: 1rem;
+}
+
+.flex_container p span {
+    background-color: #f3405b69;
+}
+
+.link_api {
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.link_api p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.link_api span {
+    width: 100%;
+    text-align: center;
+    background-color: #f3405b69;
+    font-size: 1.2rem;
+    padding: 5px 35px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.link_api button {
+    width: 300px;
+    height: 40px;
+    margin-top: 40px;
+    color: #FA7284;
+    border: 2px solid #FA7284;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: transparent;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.link_api button:hover {
+    background-color: #bd133b59;
+    color: white;
+    box-shadow: 0 0 200px rgb(255, 0, 60);
+    border: 2px solid #BD133B;
+    transition: all 0.3s ease-in-out;
+}

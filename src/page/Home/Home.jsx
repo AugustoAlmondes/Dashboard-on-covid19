@@ -100,7 +100,7 @@ export default function Home() {
                     >Ver Dashboard <FaArrowDownLong size={13} /></MOTION.button>
                 </div>
             </div>
-            <div className={styles.footer_overlay} />
+            <div className='footer_overlay' />
         </>
     );
 }

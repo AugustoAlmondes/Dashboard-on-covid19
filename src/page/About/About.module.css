@@ -38,7 +38,7 @@
 .about_dashboard button:hover {
     background-color: #bd133b59;
     color: white;
-    box-shadow: 0 0 40px rgba(189, 19, 59, 0.5);
+    box-shadow: 0 0 100px rgba(255, 0, 60, 0.664);
     border: 2px solid #BD133B;
     transition: all 0.3s ease-in-out;
 }
