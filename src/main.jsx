@@ -9,6 +9,14 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Home />
     <About />
+    <h2
+      style={{
+        textAlign: 'center',
+        margin: '2rem',
+        color: '#fff',
+        fontSize: '2rem',
+      }}
+    >IN DEVELOPMENT...</h2>
     {/* <DataFont /> */}
   </StrictMode>,
 )
