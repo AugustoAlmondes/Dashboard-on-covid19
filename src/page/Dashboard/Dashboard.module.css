@@ -56,7 +56,13 @@
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition:  0.3s ease-in-out;
+}
+
+.country_select button:hover {
+    background-color: #ff00223d;
+    color: white;
+    box-shadow: 0 0 100px rgba(250, 114, 132, 0.5);
 }
 
 .header_dashboard {

@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Dropdown.module.css'; // Importando como CSS Module
 
-function Dropdown() {
+function Dropdown({ options, selectedOption, setSelectedOption }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
-    const options = ['Opção 1', 'Opção 2', 'Opção 3'];
-    const dropdownRef = useRef(null); // Ref para o container do dropdown
+    const dropdownRef = useRef(null);
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 

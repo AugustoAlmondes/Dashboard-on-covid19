@@ -11,10 +11,45 @@ import { motion as MOTION } from 'motion/react';
 import TodayData from '../../components/TodayData/TodayData';
 import PopulationCard from '../../components/PopulationCard/PopulationCard';
 import PerMilion from '../../components/PerMilion/PerMilion';
+import { useEffect, useState } from 'react';
+import { fetchDataAPI } from '../../services/api';
+// import { useEffect } from 'react';
 
 export default function Dashboard() {
 
+    const [options, setOptions] = useState([]);
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [countryData, setCountryData] = useState(null);
+
+    useEffect(() => {
+        const fetchCountries = async () => {
+            try {
+                const data = await fetchDataAPI('countries');
+                setCountryData(await fetchDataAPI('all'));
+                setOptions(data.map((country) => country.country));
+            } catch (error) {
+                console.error('Error fetching countries:', error);
+            }
+        };
+        fetchCountries();
+    }, []);
+
+    async function handleSelectCountry() {
+        console.log(`Selected country: ${selectedOption.toLowerCase()}`);
+        const endpoint = `countries/${selectedOption.toLowerCase()}`;
+        const res = await fetchDataAPI(endpoint);
+        if (res) {
+            setCountryData(res);
+            console.log(`Data for ${selectedOption}:`, res);
+            console.log(countryData.cases);
+        } else {
+            console.error(`No data found for ${selectedOption}`);
+        }
+
+    }
+
     return (
+
         <>
             <MOTION.div
                 className={styles.container}>
@@ -22,22 +57,31 @@ export default function Dashboard() {
                 <div
                     className={styles.header}>
 
-                    <div 
-                    
-                    className={styles.title}>
+                    <div
+
+                        className={styles.title}>
                         <h1 >DASHBOARD</h1>
                         <h2 >Dados Globais</h2>
                     </div>
 
                     <div className={styles.country_select}>
-                        <Dropdown />
-                        <button>Selecionar</button>
+                        <Dropdown
+                            options={options}
+                            selectedOption={selectedOption}
+                            setSelectedOption={setSelectedOption} />
+
+                        <button
+                            className={styles.button_select}
+                            onClick={handleSelectCountry}
+                        >Selecionar
+                        </button>
+
                     </div>
 
                 </div>
 
                 <div className={styles.header_dashboard}>
-                    <GlobalStats icon={<FaVirusCovid />} title="Total de casos" value={704753890} delayTransition={0.1} />
+                    <GlobalStats icon={<FaVirusCovid />} title="Total de casos" value={675619811} delayTransition={0.1} />
                     <GlobalStats icon={<FaSkull />} title="Total de Mortos" value={7010681} delayTransition={0.2} />
                     <GlobalStats icon={<FaHeartCircleCheck />} title="Total de curados" value={675619811} delayTransition={0.3} />
                     <GlobalStats icon={<BsClipboard2PulseFill />} title="Casos ativos" value={22123398} delayTransition={0.4} />
@@ -57,8 +101,8 @@ export default function Dashboard() {
                     </div>
 
                     <div className={styles.right_mid_data}>
-                        <PopulationCard/>
-                        <PerMilion/>
+                        <PopulationCard />
+                        <PerMilion />
                     </div>
 
                 </div>
