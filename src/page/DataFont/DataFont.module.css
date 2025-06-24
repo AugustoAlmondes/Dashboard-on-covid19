@@ -1,12 +1,12 @@
 .container_datafont {
-    height: 70vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     background-image:
-        radial-gradient(circle at left, rgba(124, 24, 24, 0.397)0%, rgba(0, 0, 0, 0) 40%),
-        radial-gradient(circle at bottom right, rgba(124, 24, 24, 0.397)0%, rgba(0, 0, 0, 0) 40%);
+        radial-gradient(circle at left, rgba(124, 24, 24, 0.397)0%, rgba(0, 0, 0, 0) 40%);
+        /* radial-gradient(circle at bottom right, rgba(124, 24, 24, 0.397)0%, rgba(0, 0, 0, 0) 40%); */
     background-size: 50% 100%;
     background-position: left, right;
     background-repeat: no-repeat;

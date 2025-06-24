@@ -1,0 +1,67 @@
+.container_situation_donut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: calc(80% - 20px);
+    padding: 20px 10px;
+    border-radius: 15px;
+    border: 1px solid var(--dashboard-color);
+    background-color: var(--dashboard-color);
+    transition: .5s ease-in-out;
+}
+
+.header_donut{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_donut h2{
+    font-weight: 400;
+    color: #FFE4E6;
+    width: 70%;
+    text-align: center;
+}
+
+.pieChart{
+    width: 100%;
+}
+
+.pie_legend{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pie_legend ul{
+        width: 270px;
+        list-style: none;
+        text-align: center;
+}
+
+.pie_legend ul li{
+    padding: 10px;
+    position: relative;
+    font-weight: 300;
+}
+
+.pie_legend ul li span{
+    font-weight: 500;
+}
+
+.pie_legend ul li svg{
+    margin-right: 30px;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform:translateY(-50%);
+}
+
+
+.pie_legend ul li:nth-child(1),
+.pie_legend ul li:nth-child(2)
+{
+    border-bottom: 1px solid red;
+}

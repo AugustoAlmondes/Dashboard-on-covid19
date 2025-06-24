@@ -5,11 +5,6 @@ import { motion as MOTION } from 'motion/react';
 
 export default function About() {
     // Configurações comuns para as animações
-    const viewportSettings = {
-        once: false,
-        margin: "250px",
-        amount: 0.5 // 20% do elemento precisa estar visível
-    };
 
     return (
         <>
@@ -18,14 +13,14 @@ export default function About() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 1 }}
-                viewport={viewportSettings}
+                viewport={{ once: true }}
             >
                 <div className={styles.about_dashboard}>
                     <MOTION.h1
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        viewport={viewportSettings}
+                        viewport={{ once: true }}
                     >
                         Sobre o COVID-19
                         <br />
@@ -33,7 +28,7 @@ export default function About() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            viewport={viewportSettings}
+                            viewport={{ once: true }}
 
                         >
                             Dashboard
@@ -45,7 +40,7 @@ export default function About() {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
-                        viewport={viewportSettings}
+                        viewport={{ once: true }}
                     >
                         <p>
                             Este dashboard foi criado com o objetivo de fornecer informações atualizadas e confiáveis sobre a pandemia de COVID-19, tanto em escala global quanto por país.
@@ -58,7 +53,7 @@ export default function About() {
                                 initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6, delay: 0.8 }}
-                                viewport={viewportSettings}
+                                viewport={{ once: true }}
                             >
                                 A evolução dos casos e mortes
                             </MOTION.li>
@@ -66,7 +61,7 @@ export default function About() {
                                 initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6, delay: 1.0 }}
-                                viewport={viewportSettings}
+                                viewport={{ once: true }}
                             >
                                 A situação atual em diferentes países
                             </MOTION.li>
@@ -74,7 +69,7 @@ export default function About() {
                                 initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6, delay: 1.2 }}
-                                viewport={viewportSettings}
+                                viewport={{ once: true }}
                             >
                                 O progresso da vacinação
                             </MOTION.li>
@@ -82,7 +77,7 @@ export default function About() {
                                 initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6, delay: 1.4 }}
-                                viewport={viewportSettings}
+                                viewport={{ once: true }}
                             >
                                 Distribuição de casos ativos, recuperados e óbitos
                             </MOTION.li>
@@ -94,9 +89,9 @@ export default function About() {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 1.6 }}
-                        viewport={viewportSettings}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                        viewport={{ once: true }}
                     >
                         Ver Dashboard
                     </MOTION.button>
@@ -107,14 +102,13 @@ export default function About() {
                     initial={{ opacity: 0, x: 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
-                    viewport={viewportSettings}
+                    viewport={{ once: true }}
                 >
-                    <MOTION.img
+                    <img
                         src={Model}
                         className={styles.model}
-                        alt="model"
-                        whileInView={{ opacity: 1 }}
-                        viewport={viewportSettings}
+                    // alt="model"
+                    // whileInView={{ opacity: 1 }}
                     />
                 </MOTION.div>
             </MOTION.div>

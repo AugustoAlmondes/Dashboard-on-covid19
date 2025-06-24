@@ -1,0 +1,33 @@
+.container {
+    padding: 10px 0;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 15px;
+    transition: .5s ease-in-out;
+    border: 1px solid var(--dashboard-color);
+    background-color: var(--dashboard-color);
+}
+
+
+
+.icon {
+    font-size: 2.4rem;
+    color: #FA7284;
+    display: flex;
+    align-items: center;
+}
+
+.content p{
+    font-family: Inter, sans-serif;
+    font-weight: 200;
+    font-size: .8rem;
+}
+
+.content h3{
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+}

@@ -1,6 +1,9 @@
 :root {
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 
+    --dashboard-color: #56091e93;
+    --dashboard-color-hover: #56091ebe;
+
     color: rgb(255, 255, 255);
     background-color: #000000;
 
@@ -8,6 +11,13 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.hover:hover{
+    cursor: pointer;
+    border: 1px solid #871435;
+    background-color: var(--dashboard-color-hover);
+    box-shadow: 0 0 50px var(--dashboard-color);
 }
 
 * {
