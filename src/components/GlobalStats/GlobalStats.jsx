@@ -5,6 +5,9 @@ import {maskNumber} from '../../utils/maskNumber';
 
 export default function GlobalStats({ icon, title, value, delayTransition }) {
 
+    console.log("valor vindo:",value);
+    
+
     return (
         <>
             <MOTION.div
@@ -19,7 +22,7 @@ export default function GlobalStats({ icon, title, value, delayTransition }) {
                 </div>
                 <div className={styles.content}>
                     <p>{title}</p>
-                    <h3>{maskNumber(value)}</h3>
+                    <h3>{value? maskNumber(value): "0"}</h3>
                 </div>
             </MOTION.div>
         </>

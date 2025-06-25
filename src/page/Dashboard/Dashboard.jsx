@@ -21,18 +21,25 @@ export default function Dashboard() {
     const [selectedOption, setSelectedOption] = useState(null);
     const [countryData, setCountryData] = useState(null);
 
+
     useEffect(() => {
-        const fetchCountries = async () => {
-            try {
-                const data = await fetchDataAPI('countries');
-                setCountryData(await fetchDataAPI('all'));
-                setOptions(data.map((country) => country.country));
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-        fetchCountries();
-    }, []);
+    const fetchInitialData = async () => {
+        try {
+            const [countries, globalData] = await Promise.all([
+                fetchDataAPI('countries'),
+                fetchDataAPI('all')
+            ]);
+
+            setOptions(countries.map((country) => country.country));
+            setCountryData(globalData);
+        } catch (error) {
+            console.error('Erro ao buscar dados iniciais:', error);
+        }
+    };
+
+    fetchInitialData();
+}, []);
+
 
     async function handleSelectCountry() {
         console.log(`Selected country: ${selectedOption.toLowerCase()}`);
@@ -81,11 +88,11 @@ export default function Dashboard() {
                 </div>
 
                 <div className={styles.header_dashboard}>
-                    <GlobalStats icon={<FaVirusCovid />} title="Total de casos" value={675619811} delayTransition={0.1} />
-                    <GlobalStats icon={<FaSkull />} title="Total de Mortos" value={7010681} delayTransition={0.2} />
-                    <GlobalStats icon={<FaHeartCircleCheck />} title="Total de curados" value={675619811} delayTransition={0.3} />
-                    <GlobalStats icon={<BsClipboard2PulseFill />} title="Casos ativos" value={22123398} delayTransition={0.4} />
-                    <GlobalStats icon={<BiTestTube />} title="Testes feitos" value={7026505313} delayTransition={0.5} />
+                    <GlobalStats icon={<FaVirusCovid />} title="Total de casos" value={countryData?.cases} delayTransition={0.1} />
+                    <GlobalStats icon={<FaSkull />} title="Total de Mortos" value={countryData?.deaths} delayTransition={0.2} />
+                    <GlobalStats icon={<FaHeartCircleCheck />} title="Total de curados" value={countryData?.recovered} delayTransition={0.3} />
+                    <GlobalStats icon={<BsClipboard2PulseFill />} title="Casos ativos" value={countryData?.active} delayTransition={0.4} />
+                    <GlobalStats icon={<BiTestTube />} title="Testes feitos" value={countryData?.tests} delayTransition={0.5} />
                 </div>
 
                 <div className={styles.container_mid_data}>
@@ -97,7 +104,7 @@ export default function Dashboard() {
 
                     <div className={styles.center_mid_data}>
                         <SituationDonut />
-                        <TodayData />
+                        <TodayData countryData={countryData} />
                     </div>
 
                     <div className={styles.right_mid_data}>

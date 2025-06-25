@@ -2,7 +2,7 @@
 import styles from './TodayData.module.css';
 import { motion as MOTION } from 'motion/react';
 
-export default function TodayData() {
+export default function TodayData({countryData}) {
     return (
         <>
             <MOTION.div
@@ -16,21 +16,21 @@ export default function TodayData() {
                     <ul>
                         <li>
                             <p>Casos</p>
-                            <h3>0</h3>
+                            <h3>{countryData?.todayCases}</h3>
                         </li>
                         <li>
                             <div className={styles.line} />
                         </li>
                         <li>
                             <p>Curados</p>
-                            <h3>790</h3>
+                            <h3>{countryData?.todayRecovered}</h3>
                         </li>
                         <li>
                             <div className={styles.line} />
                         </li>
                         <li>
                             <p>Mortes</p>
-                            <h3>0</h3>
+                            <h3>{countryData?.todayDeaths}</h3>
                         </li>
                     </ul>
                 </div>
