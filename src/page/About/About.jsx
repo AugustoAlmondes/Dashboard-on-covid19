@@ -1,6 +1,6 @@
 import DataFont from '../DataFont/DataFont';
 import styles from './About.module.css';
-import Model from '/model.jpg';
+import Model from '/dashboard.png';
 import { motion as MOTION } from 'motion/react';
 
 export default function About() {
@@ -82,7 +82,7 @@ export default function About() {
                     </MOTION.button>
                 </div>
 
-                {/* <MOTION.div
+                <MOTION.div
                     className={styles.image_container}
                     initial={{ opacity: 0, x: 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -94,7 +94,7 @@ export default function About() {
                         alt="Modelo de dashboard COVID-19"
                         className={styles.model_image}
                     />
-                </MOTION.div> */}
+                </MOTION.div>
             </div>
             <DataFont />
         </MOTION.div>
