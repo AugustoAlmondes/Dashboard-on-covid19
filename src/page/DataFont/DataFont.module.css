@@ -29,6 +29,7 @@
     color: white;
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    z-index: 1;
 }
 
 .flex_container h1 span {
