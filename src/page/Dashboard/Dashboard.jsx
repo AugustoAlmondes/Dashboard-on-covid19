@@ -65,7 +65,7 @@ export default function Dashboard() {
                         </button>
                     </div>
                 </div>
-                {/* { loading && <SkeletonDashboard />} */}
+                { loading && <SkeletonDashboard />}
                 <div className={styles.header_dashboard}>
                     <GlobalStats
                         icon={<FaVirusCovid />}
