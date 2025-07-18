@@ -1,18 +1,15 @@
 .container_per_milion {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    flex-direction: column;
     border: 1px solid var(--dashboard-color);
     background-color: var(--dashboard-color);
     transition: .3s ease-in-out;
     padding: 20px;
     border-radius: 15px;
+    height: 100%; /* Garante que ocupa todo o espaço */
 }
 
-.header_per_milion{
+.header_per_milion {
     display: flex;
     font-size: 1.2rem;
     font-weight: 300;
@@ -21,24 +18,83 @@
     justify-content: center;
     gap: 10px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
-.pie_chart{
-    position: relative;
+.pie_chart {
     width: 100%;
-    height: 200px;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-.value_pie_chart{
-    position: absolute;
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: #FFE4E6;
-    bottom: 30px;
-    text-align: center;
-    left: 50%;
-    transform: translateX(-50%);
+/* Gráfico semi-circular ajustado */
+.recharts-surface {
+    overflow: visible !important; /* Permite que as labels fiquem completas */
+}
+
+/* Container de comparação */
+.comparison_container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Para telas pequenas */
+}
+
+.comparison_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparison_item strong {
+    font-weight: 500;
+    color: white;
+}
+
+/* Indicadores de alta/baixa */
+.higher {
+    color: #FF6B6B;
+    font-weight: 500;
+}
+
+.lower {
+    color: #6BFF6B;
+    font-weight: 500;
+}
+
+/* Média global */
+.global_average {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 768px) {
+    .comparison_container {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .pie_chart {
+        height: auto;
+        min-height: 250px;
+    }
 }

@@ -36,7 +36,7 @@
 }
 
 .pie_legend ul{
-        width: 270px;
+        width: 300px;
         list-style: none;
         text-align: center;
 }
@@ -54,7 +54,7 @@
 .pie_legend ul li svg{
     margin-right: 30px;
     position: absolute;
-    left: 30px;
+    left: 0px;
     top: 50%;
     transform:translateY(-50%);
 }

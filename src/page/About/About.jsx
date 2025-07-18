@@ -4,17 +4,22 @@ import Model from '/model.jpg';
 import { motion as MOTION } from 'motion/react';
 
 export default function About() {
-    // Configurações comuns para as animações
+    const listItems = [
+        "A evolução dos casos e mortes",
+        "A situação atual em diferentes países",
+        "O progresso da vacinação",
+        "Distribuição de casos ativos, recuperados e óbitos"
+    ];
 
     return (
-        <>
-            <MOTION.div
-                className={styles.container}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
-            >
+        <MOTION.div
+            className={styles.container}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+        >
+            <div className={styles.content_wrapper}>
                 <div className={styles.about_dashboard}>
                     <MOTION.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -29,7 +34,7 @@ export default function About() {
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                             viewport={{ once: true }}
-
+                            className={styles.title_highlight}
                         >
                             Dashboard
                         </MOTION.span>
@@ -48,44 +53,24 @@ export default function About() {
                             <br />
                             Através de gráficos, indicadores e comparativos, você pode acompanhar:
                         </p>
-                        <MOTION.ul>
-                            <MOTION.li
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6, delay: 0.8 }}
-                                viewport={{ once: true }}
-                            >
-                                A evolução dos casos e mortes
-                            </MOTION.li>
-                            <MOTION.li
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6, delay: 1.0 }}
-                                viewport={{ once: true }}
-                            >
-                                A situação atual em diferentes países
-                            </MOTION.li>
-                            <MOTION.li
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6, delay: 1.2 }}
-                                viewport={{ once: true }}
-                            >
-                                O progresso da vacinação
-                            </MOTION.li>
-                            <MOTION.li
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6, delay: 1.4 }}
-                                viewport={{ once: true }}
-                            >
-                                Distribuição de casos ativos, recuperados e óbitos
-                            </MOTION.li>
-                        </MOTION.ul>
+                        
+                        <ul className={styles.features_list}>
+                            {listItems.map((item, index) => (
+                                <MOTION.li
+                                    key={index}
+                                    initial={{ opacity: 0, x: -30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
+                                    viewport={{ once: true }}
+                                >
+                                    {item}
+                                </MOTION.li>
+                            ))}
+                        </ul>
                     </MOTION.div>
 
                     <MOTION.button
-                        className={styles.button}
+                        className={styles.cta_button}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 1.6 }}
@@ -97,8 +82,8 @@ export default function About() {
                     </MOTION.button>
                 </div>
 
-                <MOTION.div
-                    className={styles.container_image}
+                {/* <MOTION.div
+                    className={styles.image_container}
                     initial={{ opacity: 0, x: 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
@@ -106,14 +91,12 @@ export default function About() {
                 >
                     <img
                         src={Model}
-                        className={styles.model}
-                    // alt="model"
-                    // whileInView={{ opacity: 1 }}
+                        alt="Modelo de dashboard COVID-19"
+                        className={styles.model_image}
                     />
-                </MOTION.div>
-            </MOTION.div>
-            {/* <div className='footer_overlay' /> */}
+                </MOTION.div> */}
+            </div>
             <DataFont />
-        </>
+        </MOTION.div>
     );
 }

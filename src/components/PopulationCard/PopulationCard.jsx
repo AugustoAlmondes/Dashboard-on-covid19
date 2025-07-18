@@ -1,8 +1,24 @@
-// import './PopulationCard.module.css';
 import styles from './PopulationCard.module.css';
 import { motion as MOTION } from 'motion/react';
+import { useContext } from 'react';
+import { ApiContext } from '../../context/ApiContext/ApiContext';
+import { maskNumber } from '../../utils/maskNumber';
 
 export default function PopulationCard() {
+    const { data } = useContext(ApiContext);
+    const countryData = data.countryData || data.globalData;
+
+    // Dados da população
+    const population = countryData?.population || 0;
+    
+    // Dados por milhão (com fallback para 0 se não existirem)
+    const casesPerMillion = countryData?.casesPerOneMillion || 0;
+    const deathsPerMillion = countryData?.deathsPerOneMillion || 0;
+    const testsPerMillion = countryData?.testsPerOneMillion || 0;
+    const activePerMillion = countryData?.activePerOneMillion || 0;
+    const recoveredPerMillion = countryData?.recoveredPerOneMillion || 0;
+    const criticalPerMillion = countryData?.criticalPerOneMillion || 0;
+
     return (
         <>
             <MOTION.div
@@ -12,10 +28,9 @@ export default function PopulationCard() {
                 viewport={{ once: true }}
                 className={`hover ${styles.container_population}`}>
                 <div className={styles.content_population}>
-                    <p>Em: 02/03/2023</p>
                     <div className={styles.center}>
                         <h3>População total</h3>
-                        <h1>7.944.935.131</h1>
+                        <h1>{maskNumber(population)}</h1>
                     </div>
                 </div>
             </MOTION.div>
@@ -31,14 +46,14 @@ export default function PopulationCard() {
 
                     <div className={styles.data}>
                         <ul>
-                            <li><p>Casos:</p><span>90.410</span></li>
-                            <li><p>Mortes:</p><span>899,40</span></li>
-                            <li><p>Testes:</p><span>88.4400,59</span></li>
+                            <li><p>Casos:</p><span>{maskNumber(casesPerMillion)}</span></li>
+                            <li><p>Mortes:</p><span>{maskNumber(deathsPerMillion)}</span></li>
+                            <li><p>Testes:</p><span>{maskNumber(testsPerMillion)}</span></li>
                         </ul>
                         <ul>
-                            <li><p>Ativos</p><span>2.784.591</span></li>
-                            <li><p>Curasdos</p><span>85.037,81</span></li>
-                            <li><p>Criticos</p><span>4,38</span></li>
+                            <li><p>Ativos:</p><span>{maskNumber(activePerMillion)}</span></li>
+                            <li><p>Recuperados:</p><span>{maskNumber(recoveredPerMillion)}</span></li>
+                            <li><p>Críticos:</p><span>{maskNumber(criticalPerMillion)}</span></li>
                         </ul>
                     </div>
                 </div>
