@@ -2,6 +2,7 @@ import DataFont from '../DataFont/DataFont';
 import styles from './About.module.css';
 import Model from '/dashboard.png';
 import { motion as MOTION } from 'motion/react';
+import { scrollToComponent } from '../../utils/scrollToComponent';
 
 export default function About() {
     const listItems = [
@@ -18,6 +19,7 @@ export default function About() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
+            id="Sobre"
         >
             <div className={styles.content_wrapper}>
                 <div className={styles.about_dashboard}>
@@ -53,7 +55,7 @@ export default function About() {
                             <br />
                             Através de gráficos, indicadores e comparativos, você pode acompanhar:
                         </p>
-                        
+
                         <ul className={styles.features_list}>
                             {listItems.map((item, index) => (
                                 <MOTION.li
@@ -77,6 +79,7 @@ export default function About() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         viewport={{ once: true }}
+                        onClick={() => scrollToComponent('Dashboard')}
                     >
                         Ver Dashboard
                     </MOTION.button>
@@ -89,7 +92,11 @@ export default function About() {
                     transition={{ duration: 1, delay: 0.5 }}
                     viewport={{ once: true }}
                 >
-                    <img
+                    <MOTION.img
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                        viewport={{ once: true }}
                         src={Model}
                         alt="Modelo de dashboard COVID-19"
                         className={styles.model_image}

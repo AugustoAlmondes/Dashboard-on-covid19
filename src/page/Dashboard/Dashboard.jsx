@@ -37,7 +37,8 @@ export default function Dashboard() {
 
     return (
         <>
-            <MOTION.div className={styles.container}>
+            <MOTION.div className={styles.container} 
+            id="Dashboard">
                 <div className={styles.header}>
                     <div className={styles.title}>
                         <h1>DASHBOARD</h1>

@@ -1,10 +1,12 @@
 import { FaArrowDownLong } from 'react-icons/fa6';
 import styles from './Home.module.css';
 import { motion as MOTION } from 'motion/react';
+import { scrollToComponent } from '../../utils/scrollToComponent';
 
 export default function Home() {
     return (
-        <div className={styles.home_container}>
+        <div className={styles.home_container}
+            id="Home">
             <div className={styles.overlay} />
             <MOTION.video
                 initial={{ opacity: 0 }}
@@ -53,6 +55,7 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 6.5 }}
                     className={styles.cta_button}
+                    onClick={() => scrollToComponent('Dashboard')}
                 >
                     Ver Dashboard <FaArrowDownLong className={styles.button_icon} />
                 </MOTION.button>

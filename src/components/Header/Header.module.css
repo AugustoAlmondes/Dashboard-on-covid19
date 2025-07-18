@@ -45,6 +45,7 @@
 
 .desktop_menu li {
     font-size: 1rem;
+    margin: 0 10px;
     font-weight: 200;
     cursor: pointer;
     transition: color 0.3s;
